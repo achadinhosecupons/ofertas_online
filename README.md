@@ -70,8 +70,9 @@ e acesse `http://localhost:8000`.
 2. No repositório, vá em **Settings → Pages**.
 3. Em **Build and deployment**, escolha **Deploy from a branch**.
 4. Selecione a branch `main` e a pasta `/ (root)`.
-5. Salve. O GitHub publica em alguns minutos em
-   `https://<seu-usuario>.github.io/<nome-do-repo>/`.
+5. Salve. O GitHub publica em alguns minutos.
+
+O site está publicado em: **https://achadinhosecupons.github.io/ofertas_online/**
 
 Se quiser usar um domínio próprio, adicione um arquivo `CNAME` na raiz do
 repositório com o domínio (ex.: `ofertas.seudominio.com`) e configure o DNS

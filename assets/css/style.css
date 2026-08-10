@@ -189,6 +189,13 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.footer__privacy {
+  max-width: 320px;
+  margin: 6px auto 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero, .hero::after, .link-card::before, .link-card::after {
     animation: none;
