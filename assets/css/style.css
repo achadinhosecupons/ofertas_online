@@ -1,0 +1,196 @@
+:root {
+  --bg-1: #0b0c10;
+  --bg-2: #1a1a20;
+  --cyan: #00e5ff;
+  --pink: #ff2daa;
+  --gold: #ffd400;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 229, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(255, 45, 170, 0.12), transparent 45%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 480px;
+  padding: 32px 20px 56px;
+}
+
+/* Avatar */
+.hero {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.hero__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.25) 50%, transparent 60%);
+  animation: rotate-shine 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px 6px var(--cyan); }
+  50% { box-shadow: 0 0 22px 9px var(--pink); }
+}
+
+@keyframes rotate-shine {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Username */
+.username {
+  margin: 18px 0 0;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Social icon row */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.socials a {
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.socials svg {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  fill: var(--white);
+  filter: drop-shadow(rgba(0, 0, 0, 0.25) 0 0.5px 1px);
+}
+
+/* Featured link cards */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.link-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-radius: 36px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+  background:
+    radial-gradient(circle at 70% 30%, rgba(0, 229, 255, 0.13), transparent 60%),
+    radial-gradient(circle at 30% 70%, rgba(255, 45, 170, 0.13), transparent 60%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  transition: transform 0.15s ease;
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  transform: translateY(-2px);
+}
+
+.link-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: drift 10s linear infinite;
+  opacity: 0.4;
+}
+
+.link-card::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: shimmer 3s linear infinite;
+}
+
+.link-card span {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 30px 30px; }
+}
+
+@keyframes shimmer {
+  from { transform: rotate(45deg) translateX(-100%); }
+  to { transform: rotate(45deg) translateX(100%); }
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero, .hero::after, .link-card::before, .link-card::after {
+    animation: none;
+  }
+}
